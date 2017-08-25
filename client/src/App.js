@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import { 
+import {
   ApolloClient,
   gql,
   graphql,
   ApolloProvider
 } from 'react-apollo';
 
+import {
+  makeExecutableSchema,
+  addMockFunctionsToSchema
+} from 'graphql-tools';
+
+import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
+import { typeDefs } from './data/schema';
+
+const schema = makeExecutableSchema({ typeDefs });
+addMockFunctionsToSchema({ schema });
+const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
+
+
+
+
 // 0) create the Apollo CLient
-const client = new ApolloClient();
+const client = new ApolloClient({
+  networkInterface: mockNetworkInterface
+});
 
 // 1) list component
 const ChannelList = ({ data: { loading, error, channels}}) => {
