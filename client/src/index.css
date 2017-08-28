@@ -4,3 +4,18 @@ body {
   font-family: sans-serif;
   background-color: #C3CED5;
 }
+
+ul {
+  list-style: none;
+  width: 80%;
+  margin: 20px auto;
+}
+
+ul li {
+  background-color: #fff;
+  border: 1px solid #203D4E;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px 10px;
+  display: inline-block;
+}

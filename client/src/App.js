@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+import casual from 'casual-browserify';
 import {
   ApolloClient,
   gql,
@@ -15,9 +17,15 @@ import {
 
 import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
 import { typeDefs } from './data/schema';
+import {mocks} from './data/channel-mock'
+
 
 const schema = makeExecutableSchema({ typeDefs });
-addMockFunctionsToSchema({ schema });
+
+addMockFunctionsToSchema({ 
+  schema, 
+  mocks
+});
 const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 
 
@@ -40,23 +48,26 @@ const ChannelList = ({ data: { loading, error, channels}}) => {
   }
 
   return <ul>
-    { channels.map( ch => <li key={ch.id}>{ch.name}</li>)}
+    { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
   </ul>
 }
 
 
 // 2) query for the component
 const channelListQuery = gql`
-  query ChannelListQuery {
+  query channels {
     channels {
       id
       name
+      topic 
+      userCount
     }
   }
 `
 
 // 3) Decorate/Connect the list component with data
 const ChannelListWithData = graphql(channelListQuery)(ChannelList)
+
 
 // The App
 class App extends Component {

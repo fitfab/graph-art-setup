@@ -1,13 +1,35 @@
 export const typeDefs = `
+  type User {
+    id: Int
+    name: String
+    posts(limit: Int): [Post]
+  }
 
-    # defines what type object exist in our app
-    type Channel {
+  type Post {
+    id: Int
+    title: String
+    views: Int
+    author: User
+  }
+
+	type Channel {
         id: ID!
-        name: String
-    }
+        name: String!
+        topic: String!
+        userCount: Int
 
-    # Defines what we can query within our API
-    type Query {
+    }
+	type channels {
         channels: [Channel]
     }
+
+  type Query {
+    aString: String
+    aBoolean: Boolean
+    anInt: Int
+    author(id: Int): User
+    topPosts(limit: Int): [Post]
+		channels(limit: Int): [Channel]
+		channel: Channel
+  }
 `;
