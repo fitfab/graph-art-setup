@@ -3,6 +3,8 @@ import {
     addMockFunctionsToSchema
 } from 'graphql-tools';
 
+import { resolvers } from './resolvers';
+
 const typeDefs = `
     type User {
         id: Int
@@ -22,8 +24,6 @@ const typeDefs = `
         name: String!
         topic: String!
         userCount: Int
-        users: [User]
-
     }
 
     type channels {
@@ -38,6 +38,6 @@ const typeDefs = `
     }
 `;
 
-const schema = makeExecutableSchema({ typeDefs });
-addMockFunctionsToSchema({ schema });
+const schema = makeExecutableSchema({ typeDefs, resolvers });
+//addMockFunctionsToSchema({ schema });
 export { schema };
