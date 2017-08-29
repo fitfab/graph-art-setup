@@ -17,6 +17,7 @@ export const typeDefs = `
         name: String!
         topic: String!
         userCount: Int
+        users: [User]
 
     }
 	type channels {

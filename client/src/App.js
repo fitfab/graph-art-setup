@@ -22,10 +22,12 @@ import {mocks} from './data/channel-mock'
 
 const schema = makeExecutableSchema({ typeDefs });
 
+// setup mock data based on the schema
 addMockFunctionsToSchema({ 
   schema, 
   mocks
 });
+
 const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 
 
