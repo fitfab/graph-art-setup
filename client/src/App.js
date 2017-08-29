@@ -31,8 +31,6 @@ addMockFunctionsToSchema({
 const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 
 
-
-
 // 0) create the Apollo CLient
 const client = new ApolloClient({
   networkInterface: mockNetworkInterface
