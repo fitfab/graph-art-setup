@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import casual from 'casual-browserify';
 import {
   ApolloClient,
   gql,

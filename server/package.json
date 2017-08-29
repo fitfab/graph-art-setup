@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "Setup for graphql",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "babel-node": "babel-node --preset=/*a*/ --ignore='./node_modules'",
+    "start": "nodemon --exec npm run babel-node -- ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "graphql",
+    "babel",
+    "nodemon"
+  ],
+  "author": "Miguel Julio <mjulio@artnet.com>",
+  "license": "MIT"
+}
