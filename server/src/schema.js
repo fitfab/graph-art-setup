@@ -7,14 +7,18 @@ import { resolvers } from './resolvers';
 
 const typeDefs = `
     type User {
-        id: Int
-        name: String
+        id: Int!
+        firstName: String
+        lastName: String
+        userName: String
+        password: String
         posts(limit: Int): [Post]
     }
 
     type Post {
         id: Int
         title: String
+        text: String
         views: Int
         author: User
     }
@@ -26,15 +30,10 @@ const typeDefs = `
         userCount: Int
     }
 
-    type channels {
-        channels: [Channel]
-    }
-
     type Query {
         author(id: Int): User
-        topPosts(limit: Int): [Post]
+        recentPosts(limit: Int): [Post]
         channels(limit: Int): [Channel]
-        channel: Channel
     }
 `;
 

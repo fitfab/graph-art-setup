@@ -1,22 +1,17 @@
-const channels =[
-    {
-        id: 100,
-        name: 'players',
-        topic: 'soccer',
-        userCount: 5,
-    },
-    {
-        id: 201,
-        name: 'dancers',
-        topic: 'tango',
-        userCount: 2,
-    }
-];
+import user from './mocks/user';
+import channels from './mocks/channels';
+import posts from './mocks/posts';
 
 export const resolvers = {
     Query: {
         channels: () => {
             return channels
+        },
+        author: () => {
+            return user
+        },
+        recentPosts: () => {
+            return posts
         }
     }
 }
