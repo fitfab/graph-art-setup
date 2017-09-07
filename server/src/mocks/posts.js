@@ -1,24 +1,26 @@
+import casual from 'casual-browserify';
 import user from './user';
 
 export default [
     {
-        id: 1,
-        title: 'Here i go',
-        text: 'This some copy for you to read again again.',
-        views: 7,
+        id: casual.integer(100,900),
+        title: casual.title,
+        text: casual.text,
+        views: casual.integer(2,11),
         author: user
     },
     {
-        id: 2,
-        title: 'Never mind the sun!',
-        text: 'Read this some copy for you to read again again.',
-        views: 13,
-        author: {
-            id: 20012,
-            firstName: 'Alberto',
-            lastName: 'Lima',
-            userName: 'woof',
-            password: 'pass123'
-        }
+        id: casual.integer(100,900),
+        title: casual.title,
+        text: casual.text,
+        views: casual.integer(2,11),
+        author: user
+    },
+    {
+        id: casual.integer(100,900),
+        title: casual.title,
+        text: casual.text,
+        views: casual.integer(2,11),
+        author: user
     },
 ]
