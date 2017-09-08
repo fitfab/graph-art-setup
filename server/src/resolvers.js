@@ -2,6 +2,8 @@ import user from './mocks/user';
 import channels from './mocks/channels';
 import posts from './mocks/posts';
 
+console.log(channels.length);
+
 export const resolvers = {
     Query: {
         channels: () => {
@@ -12,6 +14,17 @@ export const resolvers = {
         },
         recentPosts: () => {
             return posts
+        }
+    },
+    Mutation: {
+        addChannel: (root, args) => {
+            const newChannel = {
+                id: channels.length+1,
+                name: args.name,
+                topic: args.topic,
+            };
+            channels.push(newChannel);
+            return newChannel;
         }
     }
 }

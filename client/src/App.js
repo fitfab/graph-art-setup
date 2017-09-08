@@ -10,25 +10,6 @@ import {
   createNetworkInterface, // <-- this line is new!
 } from 'react-apollo';
 
-// import {
-//   makeExecutableSchema,
-//   addMockFunctionsToSchema
-// } from 'graphql-tools';
-
-// import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
-// import { typeDefs } from './data/schema';
-// import {mocks} from './data/channel-mock'
-//
-//
-// const schema = makeExecutableSchema({ typeDefs });
-//
-// // setup mock data based on the schema
-// addMockFunctionsToSchema({
-//   schema,
-//   mocks
-// });
-//
-// const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 
 const networkInterface = createNetworkInterface({
     uri: 'http://localhost:4000/graphql',

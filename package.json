@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": "(npm install) && (cd client && npm install) && (cd server && npm install)",
-    "develop": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
+    "develop": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=4000 npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

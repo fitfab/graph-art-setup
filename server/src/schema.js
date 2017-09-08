@@ -28,12 +28,18 @@ const typeDefs = `
         name: String!
         topic: String!
         userCount: Int
+        users: [User]
     }
 
     type Query {
         author(id: Int): User
         recentPosts(limit: Int): [Post]
         channels(limit: Int): [Channel]
+    }
+
+    # The mutation root type, use to define all mutations
+    type Mutation {
+        addChannel(name: String!, topic: String!): Channel
     }
 `;
 
