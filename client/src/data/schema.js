@@ -25,9 +25,6 @@ export const typeDefs = `
     }
 
   type Query {
-    aString: String
-    aBoolean: Boolean
-    anInt: Int
     author(id: Int): User
     topPosts(limit: Int): [Post]
 		channels(limit: Int): [Channel]
