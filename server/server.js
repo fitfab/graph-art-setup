@@ -8,7 +8,7 @@ import express from 'express';
 import { schema } from './src/schema';
 
 
-const PORT = 4000;
+const PORT = (process.env.PORT || PORT);
 const server = express();
 
 server.use('/graphql', bodyParser.json(), graphqlExpress({
@@ -18,5 +18,5 @@ server.use('/graphql', bodyParser.json(), graphqlExpress({
 server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql'
 }));
-
-server.listen(PORT, () => console.log(`GraphQL Server is now running on http://localhost:${PORT}`));
+server.set('port', PORT)
+server.listen(PORT, () => console.log(`GraphQL Server is now running on http://localhost:${server.get('port')}`));
