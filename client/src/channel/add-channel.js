@@ -7,20 +7,25 @@ import './add-channel.css';
 const AddChannel = ({mutate}) => {
     const handleKeyUp = (e) => {
         if (e.keyCode === 13) {
-            // If you want to access the event properties in an asynchronous way,
-            // you should call event.persist() on the event, which will remove
-            // the synthetic event from the pool and allow references
-            // to the event to be retained by user code.
-            e.persist();
+
             mutate({
                 variables: {name: e.target.value},
-                refetchQueries: [{ query: channelListQuery }]
-            })
-            .then( res => {
-                e.target.value ='';
-            })
+                optimisticResponse: {
+                  addChannel: {
+                    name: e.target.value,
+                    topic: 'default',
+                    id: Math.round(Math.random() * -1000000),
+                    userCount: 0,
+                    __typename: 'Channel',
+                  },
+                },
+
+            });
+
+            e.target.value ='';
+
         }
-    }
+    };
 
     return (
         <div className="add-channel">
@@ -38,10 +43,23 @@ const addChannelMutation = gql`
         addChannel(name: $name) {
           id
           name
+          topic
+          userCount
         }
     }
 `;
 
-const AddChannelWithMutation = graphql(addChannelMutation)(AddChannel);
+const AddChannelWithMutation = graphql(addChannelMutation, {
+    options: {
+        update: (proxy, { data: { addChannel } }) => {
+            // Read the data from the cache for this query.
+            const data = proxy.readQuery({query: channelListQuery });
+            // Add our channel from the mutation to the end.
+            data.channels.push(addChannel);
+            // Write the data back to the cache.
+            proxy.writeQuery({ query: channelListQuery, data });
+        },
+    }
+})(AddChannel);
 
 export default AddChannelWithMutation;
