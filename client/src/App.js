@@ -4,14 +4,11 @@ import './App.css';
 
 import {
   ApolloClient,
-  gql,
-  graphql,
   ApolloProvider,
   createNetworkInterface, // <-- this line is new!
 } from 'react-apollo';
 
-import AddChannel from './channel/add-channel'
-
+import ChannelListWithData from './channel/channel-list-with-data'
 
 const networkInterface = createNetworkInterface({
     uri: 'http://localhost:4000/graphql',
@@ -21,44 +18,6 @@ const networkInterface = createNetworkInterface({
 const client = new ApolloClient({
   networkInterface
 });
-
-// 1) list component
-const ChannelList = ({ data: { loading, error, channels}}) => {
-
-  if (loading) {
-    return <p>Loading...</p>
-  }
-
-  if (error) {
-    return <p>{error.message}</p>
-  }
-
-  return (
-      <div>
-          <AddChannel />
-          <ul>
-            { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
-          </ul>
-      </div>
-  )
-}
-
-
-// 2) query for the component
-const channelListQuery = gql`
-  query channels {
-    channels {
-      id
-      name
-      topic
-      userCount
-    }
-  }
-`
-
-// 3) Decorate/Connect the list component with data
-const ChannelListWithData = graphql(channelListQuery)(ChannelList)
-
 
 // The App
 class App extends Component {

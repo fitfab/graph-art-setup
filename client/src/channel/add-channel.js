@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql, graphql } from 'react-apollo';
-
+import { channelListQuery } from './channel-list-with-data'
 
 import './add-channel.css';
 
@@ -13,7 +13,8 @@ const AddChannel = ({mutate}) => {
             // to the event to be retained by user code.
             e.persist();
             mutate({
-                variables: {name: e.target.value}
+                variables: {name: e.target.value},
+                refetchQueries: [{ query: channelListQuery }]
             })
             .then( res => {
                 e.target.value ='';
