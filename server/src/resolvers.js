@@ -20,7 +20,7 @@ export const resolvers = {
             const newChannel = {
                 id: channels.length+1,
                 name: args.name,
-                topic: casual.random_element(['Dancing Queen', 'iPhone', 'iSaid', 'iDance', 'iWhatever']),
+                topic: casual.random_element(['Dancing Queen', 'iRobot', 'iSaid', 'iDance', 'iWhatever']),
                 userCount: 0,
             };
             channels.push(newChannel);
