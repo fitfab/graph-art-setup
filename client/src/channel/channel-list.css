@@ -10,13 +10,14 @@ ul li {
   padding: 30px 20px;
   display: block;
   text-align:left;
-  -webkit-transition: all 900ms cubic-bezier(0.470, 0.000, 0.745, 0.715);
-   -moz-transition: all 900ms cubic-bezier(0.470, 0.000, 0.745, 0.715);
-     -o-transition: all 900ms cubic-bezier(0.470, 0.000, 0.745, 0.715);
-        transition: all 900ms cubic-bezier(0.470, 0.000, 0.745, 0.715); /* easeInSine */
+  transform: translate(0, 0);
+  -webkit-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+     -moz-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+       -o-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+          transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (default) */
 }
 
-.optimistic {
-    background: lime;
-    opacity: 0.6;
+li.optimistic {
+    transform: translate(0, 10%);
+    opacity: 0.4;
 }

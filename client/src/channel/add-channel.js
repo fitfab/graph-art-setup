@@ -13,7 +13,7 @@ const AddChannel = ({mutate}) => {
                 optimisticResponse: {
                   addChannel: {
                     name: e.target.value,
-                    topic: 'default',
+                    topic: 'Pending...',
                     id: Math.round(Math.random() * -1000000),
                     userCount: 0,
                     __typename: 'Channel',
