@@ -10,6 +10,8 @@ import {
   createNetworkInterface, // <-- this line is new!
 } from 'react-apollo';
 
+import AddChannel from './channel/add-channel'
+
 
 const networkInterface = createNetworkInterface({
     uri: 'http://localhost:4000/graphql',
@@ -31,9 +33,14 @@ const ChannelList = ({ data: { loading, error, channels}}) => {
     return <p>{error.message}</p>
   }
 
-  return <ul>
-    { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
-  </ul>
+  return (
+      <div>
+          <AddChannel />
+          <ul>
+            { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
+          </ul>
+      </div>
+  )
 }
 
 

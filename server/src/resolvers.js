@@ -1,8 +1,7 @@
+import casual from 'casual-browserify';
 import user from './mocks/user';
 import channels from './mocks/channels';
 import posts from './mocks/posts';
-
-console.log(channels.length);
 
 export const resolvers = {
     Query: {
@@ -21,7 +20,7 @@ export const resolvers = {
             const newChannel = {
                 id: channels.length+1,
                 name: args.name,
-                topic: args.topic,
+                topic: casual.random_element(['google', 'iPhone', 'iSaid', 'iDance', 'iWhatever']),
             };
             channels.push(newChannel);
             return newChannel;

@@ -26,7 +26,7 @@ const typeDefs = `
     type Channel {
         id: ID!
         name: String!
-        topic: String!
+        topic: String
         userCount: Int
         users: [User]
     }
@@ -39,7 +39,7 @@ const typeDefs = `
 
     # The mutation root type, use to define all mutations
     type Mutation {
-        addChannel(name: String!, topic: String!): Channel
+        addChannel(name: String!): Channel
     }
 `;
 
