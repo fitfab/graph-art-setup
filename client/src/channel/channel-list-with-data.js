@@ -41,6 +41,8 @@ export const channelListQuery = gql`
 `
 
 // 3) Decorate/Connect the list component with data
-export default graphql(channelListQuery)(ChannelList)
+export default graphql(channelListQuery, {
+    options: { pollInterval: 5000}
+})(ChannelList)
 
 //export default ChannelListWithData;
