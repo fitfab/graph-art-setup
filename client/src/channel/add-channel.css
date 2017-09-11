@@ -1,0 +1,11 @@
+.add-channel {
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #cecece;
+}
+
+input {
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    padding: 10px;
+}

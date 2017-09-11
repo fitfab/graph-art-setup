@@ -1,3 +1,4 @@
+import casual from 'casual-browserify';
 import user from './mocks/user';
 import channels from './mocks/channels';
 import posts from './mocks/posts';
@@ -12,6 +13,17 @@ export const resolvers = {
         },
         recentPosts: () => {
             return posts
+        }
+    },
+    Mutation: {
+        addChannel: (root, args) => {
+            const newChannel = {
+                id: channels.length+1,
+                name: args.name,
+                topic: casual.random_element(['google', 'iPhone', 'iSaid', 'iDance', 'iWhatever']),
+            };
+            channels.push(newChannel);
+            return newChannel;
         }
     }
 }

@@ -4,69 +4,20 @@ import './App.css';
 
 import {
   ApolloClient,
-  gql,
-  graphql,
-  ApolloProvider
+  ApolloProvider,
+  createNetworkInterface, // <-- this line is new!
 } from 'react-apollo';
 
-import {
-  makeExecutableSchema,
-  addMockFunctionsToSchema
-} from 'graphql-tools';
+import ChannelListWithData from './channel/channel-list-with-data'
 
-import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
-import { typeDefs } from './data/schema';
-import {mocks} from './data/channel-mock'
-
-
-const schema = makeExecutableSchema({ typeDefs });
-
-// setup mock data based on the schema
-addMockFunctionsToSchema({ 
-  schema, 
-  mocks
+const networkInterface = createNetworkInterface({
+    uri: 'http://localhost:4000/graphql',
 });
-
-const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
-
 
 // 0) create the Apollo CLient
 const client = new ApolloClient({
-  networkInterface: mockNetworkInterface
+  networkInterface
 });
-
-// 1) list component
-const ChannelList = ({ data: { loading, error, channels}}) => {
-
-  if (loading) {
-    return <p>Loading...</p>
-  }
-
-  if (error) {
-    return <p>{error.message}</p>
-  }
-
-  return <ul>
-    { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
-  </ul>
-}
-
-
-// 2) query for the component
-const channelListQuery = gql`
-  query channels {
-    channels {
-      id
-      name
-      topic 
-      userCount
-    }
-  }
-`
-
-// 3) Decorate/Connect the list component with data
-const ChannelListWithData = graphql(channelListQuery)(ChannelList)
-
 
 // The App
 class App extends Component {
@@ -80,7 +31,7 @@ class App extends Component {
         </div>
         <ChannelListWithData />
       </div>
-      </ApolloProvider> 
+      </ApolloProvider>
     );
   }
 }

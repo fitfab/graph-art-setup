@@ -7,12 +7,24 @@ export default [
         id: casual.integer(100,900),
         name: casual.random_element(activities),
         topic: casual.state,
-        userCount: 5,
+        userCount: casual.integer(1,100),
     },
     {
         id: casual.integer(100,900),
         name: casual.random_element(activities),
         topic: casual.state,
-        userCount: 2,
-    }
+        userCount: casual.integer(1,900),
+    },
+    {
+        id: casual.integer(100,900),
+        name: casual.random_element(activities),
+        topic: casual.state,
+        userCount: casual.integer(2,100),
+    },
+    {
+        id: casual.integer(100,900),
+        name: casual.random_element(activities),
+        topic: casual.state,
+        userCount: casual.integer(10,100),
+    },
 ];
