@@ -5,7 +5,9 @@ import {
   graphql
 } from 'react-apollo';
 
-import AddChannel from './add-channel'
+import AddChannel from './add-channel';
+
+import './channel-list.css';
 
 // 1) list component
 const ChannelList = ({ data: { loading, error, channels}}) => {
@@ -22,7 +24,11 @@ const ChannelList = ({ data: { loading, error, channels}}) => {
       <div>
           <AddChannel />
           <ul>
-            { channels.map( ch => <li key={ch.id}><b>{ch.name}</b> - {ch.topic} - ({ch.userCount})</li>)}
+            { channels.map( ch => (
+                <li key={ch.id} className={(ch.id < 0 ? 'optimistic': '')}>
+                    <b>{ch.name}</b> - {ch.topic} - [{ch.userCount}]
+                </li>
+            ))}
           </ul>
       </div>
   )
@@ -44,5 +50,3 @@ export const channelListQuery = gql`
 export default graphql(channelListQuery, {
     options: { pollInterval: 5000}
 })(ChannelList)
-
-//export default ChannelListWithData;
