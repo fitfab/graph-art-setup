@@ -29,7 +29,7 @@
   "lint-staged": {
     "gitDir": "../",
     "src/**/*.{js,jsx,json,css}": [
-      "prettier --write",
+      "prettier --config ./.prettierrc --write",
       "git add"
     ]
   }
