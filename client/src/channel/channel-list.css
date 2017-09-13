@@ -1,20 +1,20 @@
 ul {
-  list-style: none;
-  width: 80%;
-  margin: 0px auto;
+    list-style: none;
+    width: 80%;
+    margin: 0px auto;
 }
 
 ul li {
-  background-color: #fff;
-  border-bottom: 1px solid #cecece;
-  padding: 30px 20px;
-  display: block;
-  text-align:left;
-  transform: translate(0, 0);
-  -webkit-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
-     -moz-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
-       -o-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
-          transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (default) */
+    background-color: #fff;
+    border-bottom: 1px solid #cecece;
+    padding: 30px 20px;
+    display: block;
+    text-align: left;
+    transform: translate(0, 0);
+    -webkit-transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    -moz-transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    -o-transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1); /* ease (default) */
 }
 
 li.optimistic {
