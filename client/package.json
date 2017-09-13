@@ -30,8 +30,8 @@
     },
     "lint-staged": {
         "gitDir": "../",
-        "linters": {
-            "*": ["pretty", "git add"]
-        }
+ 
+            "./client/src/**/*.{js,jsx,json,css}": ["pretty", "git add"]
+
     }
 }
