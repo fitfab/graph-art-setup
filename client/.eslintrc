@@ -4,6 +4,6 @@
         "prettier"
     ],
     "rules": {
-        "prettier/priettier": "error"
+        "prettier/prettier": "error"
     }
 }
