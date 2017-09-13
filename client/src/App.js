@@ -36,11 +36,8 @@ class App extends Component {
                 <div className="App">
                     <div className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
-                        <h2
-                            className="foo"
-                            data-ga="header"
-                            >
-                            Falcon | Graphql & React!
+                        <h2 className="foo" data-ga="header">
+                            Falcon | Graphql & React!!!!
                         </h2>
                     </div>
                     <ChannelListWithData />
