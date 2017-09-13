@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -29,22 +29,20 @@ const client = new ApolloClient({
 });
 
 // The App
-class App extends Component {
-    render() {
-        return (
-            <ApolloProvider client={client}>
-                <div className="App">
-                    <div className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h2 className="foo" data-ga="header">
-                            Falcon | Graphql & React!!!!
-                        </h2>
-                    </div>
-                    <ChannelListWithData />
+const App = () => {
+    return (
+        <ApolloProvider client={client}>
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <h2 className="foo" data-ga="header">
+                        Falcon | Graphql & React!!!!
+                    </h2>
                 </div>
-            </ApolloProvider>
-        );
-    }
-}
+                <ChannelListWithData />
+            </div>
+        </ApolloProvider>
+    );
+};
 
 export default App;
