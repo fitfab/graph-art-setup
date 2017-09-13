@@ -31,7 +31,7 @@
     "lint-staged": {
         "gitDir": "../",
         "linters": {
-            "./client/src/**/*.{js,jsx,json,css}": ["pretty", "git add"]
+            "*": ["pretty", "git add"]
         }
     }
 }
