@@ -28,11 +28,9 @@
   },
   "lint-staged": {
     "gitDir": "../",
-    "linters": {
-      "src/**/*.{js,jsx,json,css}": [
-        "prettier --config ./.prettierrc --write",
-        "git add"
-      ]
-    }
+    "*": [
+      "pretty",
+      "git add"
+    ]
   }
 }
