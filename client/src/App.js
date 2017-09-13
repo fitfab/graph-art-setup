@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 import {
     ApolloClient,
     ApolloProvider,
-    createNetworkInterface // <-- this line is new!
+    createNetworkInterface, // <-- this line is new!
 } from 'react-apollo';
 
 import ChannelListWithData from './channel/channel-list-with-data';
 
 const networkInterface = createNetworkInterface({
-    uri: 'http://localhost:4000/graphql'
+    uri: 'http://localhost:4000/graphql',
 });
 
 // 0.0) simulating latency
@@ -19,32 +19,30 @@ networkInterface.use([
     {
         applyMiddleware(req, next) {
             setTimeout(next, 500);
-        }
-    }
+        },
+    },
 ]);
 
 // 0) create the Apollo CLient
 const client = new ApolloClient({
-    networkInterface
+    networkInterface,
 });
 
 // The App
-class App extends Component {
-    render() {
-        return (
-            <ApolloProvider client={client}>
-                <div className="App">
-                    <div className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h2>
-                            Falcon | Graphql & React + {window.location.href}
-                        </h2>
-                    </div>
-                    <ChannelListWithData />
+const App = () => {
+    return (
+        <ApolloProvider client={client}>
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <h2 className="foo" data-ga="header">
+                        Falcon | Graphql & React!!!!
+                    </h2>
                 </div>
-            </ApolloProvider>
-        );
-    }
-}
+                <ChannelListWithData />
+            </div>
+        </ApolloProvider>
+    );
+};
 
 export default App;
