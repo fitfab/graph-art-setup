@@ -5,20 +5,20 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## TODO:
 
-[ ] Setup file/folder Structure
+- [ ] Setup file/folder Structure
 
-[x] Add Prettier to [format](https://prettier.io/) the code
+- [x] Add Prettier to [format](https://prettier.io/) the code
 
-[ ] Add pre-commit hook to format and lint code
+- [ ] Add pre-commit hook to format and lint code
 
-[ ] Choose a CSS Preprocessor if needed (Sass) or [JSS](http://cssinjs.org/)
+- [ ] Choose a CSS Preprocessor if needed (Sass) or [JSS](http://cssinjs.org/)
 
-[x] [Apollo](http://dev.apollodata.com/) Client Setup
+- [x] [Apollo](http://dev.apollodata.com/) Client Setup
 
-[x] Setup [Apollo server](http://dev.apollodata.com/tools/) locally
+- [x] Setup [Apollo server](http://dev.apollodata.com/tools/) locally
 
-[ ] Add [React Router 4](https://reacttraining.com/react-router/)
+- [ ] Add [React Router 4](https://reacttraining.com/react-router/)
 
-[ ] Connect to [Apollo Server](http://dev.apollodata.com/tools/) via [Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac) only when in QA/production ENV
+- [ ] Connect to [Apollo Server](http://dev.apollodata.com/tools/) via [Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac) only when in QA/production ENV
 
-[ ] Redux Setup
+- [ ] Redux Setup
