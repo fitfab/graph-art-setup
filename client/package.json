@@ -30,7 +30,7 @@
     "lint-staged": {
         "gitDir": "../",
         "linters": {
-            "./client/src/**/*.{js,jsx,json,css}": [
+            "*.js": [
                 "eslint --fix",
                 "pretty",
                 "git add"
