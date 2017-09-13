@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "pretty": "./node_modules/.bin/prettier --single-quote --tab-width 4 --write 'src/**/*.{js,jsx,json,css}'"
+    "pretty": "./node_modules/.bin/prettier --config ./.prettierrc --write 'src/**/*.{js,jsx,json,css}'"
   },
   "devDependencies": {
     "casual-browserify": "^1.5.12",

@@ -15,9 +15,9 @@ const AddChannel = ({ mutate }) => {
                         topic: 'Pending...',
                         id: Math.round(Math.random() * -1000000),
                         userCount: 0,
-                        __typename: 'Channel'
-                    }
-                }
+                        __typename: 'Channel',
+                    },
+                },
             });
 
             e.target.value = '';
@@ -55,8 +55,8 @@ const AddChannelWithMutation = graphql(addChannelMutation, {
             data.channels.push(addChannel);
             // Write the data back to the cache.
             proxy.writeQuery({ query: channelListQuery, data });
-        }
-    }
+        },
+    },
 })(AddChannel);
 
 export default AddChannelWithMutation;
